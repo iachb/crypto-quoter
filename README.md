@@ -7,6 +7,7 @@ This project is a crypto quoter that provides real-time quotes for different cur
 - Real-time quotes: Get up-to-date quotes for various cryptocurrencies.
 - Currency selection: Choose from a wide range of currencies to view their quotes.
 - Fast Refresh: Enjoy a seamless development experience with fast refresh using either Babel or SWC.
+- Use of Styled Components.
 
 ## Installation
 
@@ -19,11 +20,6 @@ This project is a crypto quoter that provides real-time quotes for different cur
 1. Start the development server: `npm run dev`
 2. Open your browser and navigate to `http://localhost:5173`
 3. Select a currency from the dropdown menu to view its real-time quote.
-
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Resources
 
