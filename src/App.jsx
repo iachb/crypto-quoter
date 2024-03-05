@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Form from "./components/Form";
 import CryptoImg from "./img/imagen-criptos.png";
 
 function App() {
@@ -43,7 +44,10 @@ function App() {
     <>
       <Container>
         <Img src={CryptoImg} alt="img-crypto" />
-        <Heading>Qoute Crypto on Demand</Heading>
+        <div>
+          <Heading>Qoute Crypto on Demand</Heading>
+          <Form />
+        </div>
       </Container>
     </>
   );
