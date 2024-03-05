@@ -1,7 +1,6 @@
-
 import styled from "@emotion/styled";
 
-const useSelectCurrency = (label) => {
+const useSelectCurrency = (label, options) => {
   const Label = styled.label`
     color: #fff;
     display: block;
@@ -14,7 +13,13 @@ const useSelectCurrency = (label) => {
   const SelectCurrency = () => (
     <>
       <Label>{label}</Label>
-      {/* Add your select input here */}
+      <select name="currency" id="currency" className="u-full-width">
+        {options.map((option) => (
+          <option key={option.id} value={option.id}>
+            {option.name}
+          </option>
+        ))}
+      </select>
     </>
   );
 
