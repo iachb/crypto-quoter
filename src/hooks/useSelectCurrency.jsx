@@ -1,6 +1,9 @@
 import styled from "@emotion/styled";
+import { useState } from "react";
 
 const useSelectCurrency = (label, options) => {
+  const [state, setState] = useState("");
+
   const Label = styled.label`
     color: #fff;
     display: block;
@@ -10,17 +13,17 @@ const useSelectCurrency = (label, options) => {
     margin: 15px 0;
   `;
 
-const Select = styled.select`
+  const Select = styled.select`
     width: 100%;
     font-size: 18px;
     padding: 14px;
     border-radius: 10px;
-`;
+  `;
 
   const SelectCurrency = () => (
     <>
       <Label>{label}</Label>
-      <Select name="currency" id="currency" className="u-full-width">
+      <Select value={state} onChange={(e) => setState(e.target.value)}>
         {options.map((option) => (
           <option key={option.id} value={option.id}>
             {option.name}
