@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
+import propTypes from "prop-types";
 import Error from "./Error";
 import useSelectCurrency from "../hooks/useSelectCurrency";
 import { currencies } from "../data/currencies";
 import { useEffect, useState } from "react";
 
-const Form = () => {
+const Form = ({ setCurrencies }) => {
   const [crypto, setCrypto] = useState([]);
   const [error, setError] = useState(false);
   const [currency, SelectCurrency] = useSelectCurrency(
@@ -43,6 +44,7 @@ const Form = () => {
       return;
     }
     setError(false);
+    setCurrencies({ currency, cryptocurrency });
   };
 
   const InputSubmit = styled.input`
@@ -70,10 +72,14 @@ const Form = () => {
       <form>
         <SelectCurrency />
         <SelectCryptoCurrency />
-        <InputSubmit type="submit" value={"Quote"} onClick={handleSubmit}/>
+        <InputSubmit type="submit" value={"Quote"} onClick={handleSubmit} />
       </form>
     </>
   );
+};
+
+Form.propTypes = {
+  setCurrencies: propTypes.func.isRequired,
 };
 
 export default Form;
