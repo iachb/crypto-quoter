@@ -22,10 +22,9 @@ const Form = () => {
       const url = `https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD`;
       const result = await fetch(url);
       const data = await result.json();
-      console.log(data.Data);
       const cryptoArray = data.Data.map((crypto) => {
         const object = {
-          id: crypto.CoinInfo.Id,
+          id: crypto.CoinInfo.Name,
           name: crypto.CoinInfo.FullName,
         };
         return object;
