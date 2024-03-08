@@ -1,10 +1,12 @@
 import styled from "@emotion/styled";
+import Error from "./Error";
 import useSelectCurrency from "../hooks/useSelectCurrency";
 import { currencies } from "../data/currencies";
 import { useEffect, useState } from "react";
 
 const Form = () => {
   const [crypto, setCrypto] = useState([]);
+  const [error, setError] = useState(false);
   const [currency, SelectCurrency] = useSelectCurrency(
     "Choose your currency",
     currencies
@@ -34,6 +36,15 @@ const Form = () => {
     consultAPI();
   }, [currency]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (currency === "" || cryptocurrency === "") {
+      setError(true);
+      return;
+    }
+    setError(false);
+  };
+
   const InputSubmit = styled.input`
     background-color: #9497ff;
     border: none;
@@ -55,10 +66,11 @@ const Form = () => {
 
   return (
     <>
+      {error ? <Error>Both fields are mandatory</Error> : null}
       <form>
         <SelectCurrency />
         <SelectCryptoCurrency />
-        <InputSubmit type="submit" value={"Quote"} />
+        <InputSubmit type="submit" value={"Quote"} onClick={handleSubmit}/>
       </form>
     </>
   );

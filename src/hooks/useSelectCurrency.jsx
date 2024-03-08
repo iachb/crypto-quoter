@@ -24,6 +24,7 @@ const useSelectCurrency = (label, options) => {
     <>
       <Label>{label}</Label>
       <Select value={state} onChange={(e) => setState(e.target.value)}>
+      <option value="">Select</option>
         {options.map((option) => (
           <option key={option.id} value={option.id}>
             {option.name}
